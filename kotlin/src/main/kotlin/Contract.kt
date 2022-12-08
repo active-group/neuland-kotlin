@@ -7,6 +7,8 @@
     - Währung "Ich bekomme 1€ jetzt."
     - Betrag / Vielfaches: "Ich bekomme 100€ jetzt."
     - Später
+
+    ... suche Selbstbezüge
  */
 
 data class Date(val iso: String)
