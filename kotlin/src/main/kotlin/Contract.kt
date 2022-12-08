@@ -9,6 +9,12 @@
     - Später
 
     ... suche Selbstbezüge
+
+  3. Nächstes Beispiel
+     Currency swap:
+     Weihnachten:
+     - Ich bekomme 100€.
+     - Ich bezahle 100$.
  */
 
 data class Date(val iso: String)
@@ -23,6 +29,7 @@ data class Multiple(val amount: Amount, val contract: Contract)
     : Contract
 data class Later(val date: Date, val contract: Contract)
     : Contract
+data class Minus(val contract: Contract) : Contract
 
 val christmas = Date("2022-12-24")
 val c1 = One(Currency.EUR)
