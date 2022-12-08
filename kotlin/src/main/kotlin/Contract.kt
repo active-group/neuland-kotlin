@@ -71,7 +71,12 @@ data class Payment(val date: Date,
 // zurück kommt Zahlungen + Residualvertrag
 fun semantics(contract: Contract, now: Date): Pair<List<Payment>, Contract> =
     when (contract) {
-        is Zero  
+        is Zero -> TODO()
+        is One -> TODO()
+        is Multiple -> TODO()
+        is Minus -> TODO()
+        is Later -> TODO()
+        is Combine -> TODO()
     }
 
 /*
