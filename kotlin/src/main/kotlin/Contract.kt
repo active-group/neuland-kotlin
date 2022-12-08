@@ -101,7 +101,7 @@ fun semantics(contract: Contract, now: Date): Pair<List<Payment>, Contract> =
             if (now.before(contract.date))
                 Pair(emptyList(), contract)
             else
-                TODO()
+                semantics(contract.contract, now)
         }
         is Combine -> {
             val (payments1, residualContract1) = semantics(contract.contract1, now)
