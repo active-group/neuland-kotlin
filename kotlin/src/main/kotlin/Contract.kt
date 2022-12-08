@@ -17,7 +17,10 @@
      - Ich bezahle 100$.
  */
 
-data class Date(val iso: String)
+data class Date(val iso: String) {
+    fun before(other: Date): Boolean =
+        iso < other.iso
+}
 
 typealias Amount = Double
 
