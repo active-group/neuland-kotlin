@@ -43,6 +43,11 @@ fun zeroCouponBond(date: Date, amount: Amount, currency: Currency): Contract =
 
 val zcb1 = zeroCouponBond(Date("2022-12-24"), 100.0, Currency.EUR)
 
+fun currencySwap(date: Date,
+                 amount1: Amount, currency1: Currency,
+                 amount2: Amount, currency2: Currency): Contract =
+    Combine(zeroCouponBond(date, amount1, currency1)
+            Minus(zeroCouponBond(date, amount2, currency2)))
 /*
 data class ZeroCouponBond(val date: Date,
                           val amount: Amount,
