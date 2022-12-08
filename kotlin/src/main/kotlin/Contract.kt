@@ -68,6 +68,13 @@ data class Payment(val date: Date,
                    val currency: Currency) {
     fun scale(factor: Amount): Payment =
         Payment(date, direction, factor * amount, currency)
+    fun invertDirection(direction: Direction): Direction =
+        when (direction) {
+            is Direction.Long -> Direction.Short
+            is Direction.Short -> Direction.Long
+        }
+    fun invert(): Payment =
+        Payment(date, )
 }
 
 // Zahlungen bis now
@@ -79,10 +86,12 @@ fun semantics(contract: Contract, now: Date): Pair<List<Payment>, Contract> =
             1.0, contract.currency)), Zero)
         is Multiple -> {
             val (payments, residualContract) = semantics(contract.contract, now)
-            val newPayments = payments.map { it.scale(contract.amount) }
-            TODO()
+            Pair(payments.map { it.scale(contract.amount) },
+                 Multiple(contract.amount, residualContract)
         }
-        is Minus -> TODO()
+        is Minus -> {
+
+        }
         is Later -> TODO()
         is Combine -> TODO()
     }
