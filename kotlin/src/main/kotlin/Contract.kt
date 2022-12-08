@@ -71,10 +71,10 @@ data class Payment(val date: Date,
     fun invertDirection(direction: Direction): Direction =
         when (direction) {
             Direction.Long -> Direction.Short
-            is Direction.Short -> Direction.Long
+            Direction.Short -> Direction.Long
         }
     fun invert(): Payment =
-        Payment(date, )
+        Payment(date, invertDirection(direction), amount, currency)
 }
 
 // Zahlungen bis now
