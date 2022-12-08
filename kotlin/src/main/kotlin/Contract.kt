@@ -114,7 +114,7 @@ fun semantics(contract: Contract, now: Date): Pair<List<Payment>, Contract> =
         is Combine -> {
             val (payments1, residualContract1) = semantics(contract.contract1, now)
             val (payments2, residualContract2) = semantics(contract.contract2, now)
-            Pair(payments1 + payments2, Combine(residualContract1, residualContract2))
+            Pair(payments1 + payments2, combine(residualContract1, residualContract2))
         }
     }
 
