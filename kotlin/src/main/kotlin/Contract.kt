@@ -71,8 +71,9 @@ data class Payment(val date: Date,
 // zurück kommt Zahlungen + Residualvertrag
 fun semantics(contract: Contract, now: Date): Pair<List<Payment>, Contract> =
     when (contract) {
-        is Zero -> TODO()
-        is One -> TODO()
+        is Zero -> Pair(emptyList(), Zero)
+        is One -> Pair(listOf(Payment(now, Direction.Long,
+            1.0, contract.currency)), Zero)
         is Multiple -> TODO()
         is Minus -> TODO()
         is Later -> TODO()
