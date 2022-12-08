@@ -95,7 +95,11 @@ fun semantics(contract: Contract, now: Date): Pair<List<Payment>, Contract> =
                  Minus(residualContract))
         }
         is Later -> TODO()
-        is Combine -> TODO()
+        is Combine -> {
+            val (payments1, residualContract1) = semantics(contract.contract1, now)
+            val (payments2, residualContract2) = semantics(contract.contract2, now)
+            Pair(payments1 + payments2, TODO())
+        }
     }
 
 val c3 = Multiple(100.0, Combine(One(Currency.EUR),
