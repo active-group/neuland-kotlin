@@ -2,6 +2,11 @@
  1. Einfaches Beispiel
     Zero-Coupon Bond / Zero-Bond:
     "Ich bekomme Weihnachten 100€."
+
+ 2. Zerlege einfaches Beispiel in "atomare Bestandteile" / "Ideen"
+    - Währung "Ich bekomme 1€ jetzt."
+    - Betrag / Vielfaches: "Ich bekomme 100€ jetzt."
+    - Später
  */
 
 data class Date(val iso: String)
@@ -11,8 +16,12 @@ typealias Amount = Double
 enum class Currency { GBP, EUR, USD }
 
 sealed interface Contract
+data class One(val currency: Currency): Contract
+data class Multiple(val amount: Amount, val contract: Contract)
+    : Contract
 
-
+val c1 = One(Currency.EUR)
+val c2 = Multiple(100.0, One(Currency.EUR))
 /*
 data class ZeroCouponBond(val date: Date,
                           val amount: Amount,
