@@ -42,7 +42,7 @@ data class Minus(val contract: Contract) : Contract
 // Halbgruppe + neutrales Element: Monoid
 data class Combine(val contract1: Contract, val contract2: Contract)
     : Contract
-object Zero : Contract
+object Zero : Contract // neutrales Element
 
 val christmas = Date("2022-12-24")
 val c1 = One(Currency.EUR)
