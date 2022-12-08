@@ -30,6 +30,8 @@ data class Multiple(val amount: Amount, val contract: Contract)
 data class Later(val date: Date, val contract: Contract)
     : Contract
 data class Minus(val contract: Contract) : Contract
+data class Combine(val contract1: Contract, val contract2: Contract)
+    : Contract
 
 val christmas = Date("2022-12-24")
 val c1 = One(Currency.EUR)
