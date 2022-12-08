@@ -14,3 +14,5 @@ sealed interface Contract
 data class ZeroCouponBond(val date: Date,
                           val amount: Amount,
                           val currency: Currency): Contract
+
+val zcb1 = ZeroCouponBond(Date("2022-12-24"), 100.0, Currency.EUR)
