@@ -60,7 +60,12 @@ fun currencySwap(date: Date,
     Combine(zeroCouponBond(date, amount1, currency1),
             Minus(zeroCouponBond(date, amount2, currency2)))
 
-fun semantics(contract: Contract): List<Contract> = TODO()
+data class Payment(val date: Date,
+                   val direction: Direction,
+                   val amount: Amount,
+                   val currency: Currency)
+
+fun semantics(contract: Contract): List<Payment> = TODO()
 
 /*
 
