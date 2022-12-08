@@ -65,7 +65,10 @@ enum class Direction { Long, Short }
 data class Payment(val date: Date,
                    val direction: Direction,
                    val amount: Amount,
-                   val currency: Currency)
+                   val currency: Currency) {
+    fun scale(factor: Amount): Payment =
+        Payment(date, direction, factor * amount, currency)
+}
 
 // Zahlungen bis now
 // zurück kommt Zahlungen + Residualvertrag
