@@ -70,7 +70,7 @@ data class Payment(val date: Date,
         Payment(date, direction, factor * amount, currency)
     fun invertDirection(direction: Direction): Direction =
         when (direction) {
-            is Direction.Long -> Direction.Short
+            Direction.Long -> Direction.Short
             is Direction.Short -> Direction.Long
         }
     fun invert(): Payment =
