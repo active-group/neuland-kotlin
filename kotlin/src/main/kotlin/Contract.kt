@@ -87,6 +87,9 @@ fun semantics(contract: Contract, now: Date): Pair<List<Payment>, Contract> =
         is Combine -> TODO()
     }
 
+val c3 = Multiple(100.0, Combine(One(Currency.EUR),
+    Combine(Later(Date("2022-12-09"), One(Currency.EUR)),
+        Later(Date("2022-12-10"), One(Currency.EUR)))))
 /*
 
 data class ZeroCouponBond(val date: Date,
