@@ -79,7 +79,8 @@ fun semantics(contract: Contract, now: Date): Pair<List<Payment>, Contract> =
             1.0, contract.currency)), Zero)
         is Multiple -> {
             val (payments, residualContract) = semantics(contract.contract, now)
-            payments.map(it.scale(contract.amount))
+            val newPayments = payments.map { it.scale(contract.amount) }
+            TODO()
         }
         is Minus -> TODO()
         is Later -> TODO()
