@@ -6,7 +6,7 @@
 
 data class Date(val iso: String)
 
-typealias Amoun = Double
+typealias Amount = Double
 
 sealed interface Contract
 data class ZeroCouponBond(val date: Date, val amount: Amount): Contract
