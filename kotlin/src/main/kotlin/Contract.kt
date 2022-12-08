@@ -90,7 +90,9 @@ fun semantics(contract: Contract, now: Date): Pair<List<Payment>, Contract> =
                  Multiple(contract.amount, residualContract)
         }
         is Minus -> {
-
+            val (payments, residualContract) = semantics(contract.contract, now)
+            Pair(payments.map { it.invert()},
+                 Minus(residualContract))
         }
         is Later -> TODO()
         is Combine -> TODO()
