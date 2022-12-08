@@ -75,7 +75,7 @@ fun semantics(contract: Contract, now: Date): Pair<List<Payment>, Contract> =
         is One -> Pair(listOf(Payment(now, Direction.Long,
             1.0, contract.currency)), Zero)
         is Multiple ->
-            val (payments, residualContract) = semantics(contract.contract, now)
+            val payments, residualContract = semantics(contract.contract, now)
             TODO()
         is Minus -> TODO()
         is Later -> TODO()
