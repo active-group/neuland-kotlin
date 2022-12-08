@@ -21,6 +21,8 @@ sealed interface Contract
 data class One(val currency: Currency): Contract
 data class Multiple(val amount: Amount, val contract: Contract)
     : Contract
+data class Later(val date: Date, val contract: Contract)
+    : Contract
 
 val c1 = One(Currency.EUR)
 val c2 = Multiple(100.0, One(Currency.EUR))
