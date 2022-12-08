@@ -98,7 +98,7 @@ fun semantics(contract: Contract, now: Date): Pair<List<Payment>, Contract> =
         is Multiple -> {
             val (payments, residualContract) = semantics(contract.contract, now)
             Pair(payments.map { it.scale(contract.amount) },
-                 Multiple(contract.amount, residualContract)
+                 Multiple(contract.amount, residualContract))
         }
         is Minus -> {
             val (payments, residualContract) = semantics(contract.contract, now)
