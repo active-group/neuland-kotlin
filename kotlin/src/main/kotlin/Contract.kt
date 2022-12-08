@@ -80,6 +80,14 @@ data class Payment(val date: Date,
         Payment(date, invertDirection(direction), amount, currency)
 }
 
+fun combine(contract1: Contract, contract2: Contract): Contract =
+    when (contract1) {
+        is Zero -> contract2
+        else when (contract2) {
+            is Zero -> contract1
+            else -> Combine(contract1, contract2)
+        }
+    }
 // Zahlungen bis now
 // zurück kommt Zahlungen + Residualvertrag
 fun semantics(contract: Contract, now: Date): Pair<List<Payment>, Contract> =
