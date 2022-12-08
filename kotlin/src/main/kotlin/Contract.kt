@@ -29,7 +29,7 @@ val c1 = One(Currency.EUR)
 val c2 = Multiple(100.0, One(Currency.EUR))
 val zcb1 = Later(christmas, Multiple(100.0, One(Currency.EUR)))
 
-fun zeroCouponBond(date: Date, amount: Amount, currency: Currency) =
+fun zeroCouponBond(date: Date, amount: Amount, currency: Currency): Contract =
     Later(date, Multiple(amount, One(currency)))
 /*
 data class ZeroCouponBond(val date: Date,
