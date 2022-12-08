@@ -30,8 +30,19 @@ data class Multiple(val amount: Amount, val contract: Contract)
 data class Later(val date: Date, val contract: Contract)
     : Contract
 data class Minus(val contract: Contract) : Contract
+// 2stellige Operation op: (T, T) -> T
+// Assoziativitätsgesetz:
+// (a  + b) +  c = a +  (b +  c)
+// (a op b) op c = a op (b op c)
+// Halbgruppe
+
+// Manchmal gibt es ein n : T
+// a op n = n op a = a
+// neutrales Element
+// Halbgruppe + neutrales Element: Monoid
 data class Combine(val contract1: Contract, val contract2: Contract)
     : Contract
+object Zero : Contract
 
 val christmas = Date("2022-12-24")
 val c1 = One(Currency.EUR)
