@@ -60,12 +60,19 @@ fun currencySwap(date: Date,
     Combine(zeroCouponBond(date, amount1, currency1),
             Minus(zeroCouponBond(date, amount2, currency2)))
 
+enum class Direction { Long, Short }
+
 data class Payment(val date: Date,
                    val direction: Direction,
                    val amount: Amount,
                    val currency: Currency)
 
-fun semantics(contract: Contract): List<Payment> = TODO()
+// Zahlungen bis now
+// zurück kommt Zahlungen + Residualvertrag
+fun semantics(contract: Contract, now: Date): Pair<List<Payment>, Contract> =
+    when (contract) {
+        is Zero  
+    }
 
 /*
 
